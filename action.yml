@@ -1,4 +1,4 @@
-name: k
+name: k install
 description: Installs and configures k.
 inputs:
   gitops-repository-url:
