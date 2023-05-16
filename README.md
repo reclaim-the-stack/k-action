@@ -1,6 +1,6 @@
-# k-action
+# k Github Action
 
-Installs and configure k inside GitHub actions.
+Installs and configures k inside GitHub actions.
 
 # Configuration
 
