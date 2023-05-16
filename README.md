@@ -6,7 +6,7 @@ Installs and configures [k](https://github.com/reclaim-the-stack/k) inside GitHu
 
 ## Required
 
-`gitops-repository-url` - The URL for your GitOps repository. Include a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in the userinfo part of the URL if it's a private repository. Eg. `https://<personal-access-token>@github.com/<organization>/<repository>`.
+`gitops-repository-url` - The URL for your GitOps repository. Include a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in the userinfo part of the URL. Eg. `https://<personal-access-token>@github.com/<organization>/<repository>`.
 
 `kube-config` - A Base64 encoded string containing a full `kubectl` configuration YAML payload with access to the Kubernetes repository you want `k` to interact with. Eg. `cat ~/.kube/config | base64 `.
 
@@ -22,7 +22,7 @@ Installs and configures [k](https://github.com/reclaim-the-stack/k) inside GitHu
 
 Example of running `k deploy` to deploy the current git-sha of the checked out repository to `<application-name>`.
 
-Assumes you have a `GITOPS_REPOSITORY_URL` secret containing your GitOps repo URL (including a personal access token if private) and a `KUBE_CONFIG` secret containing a Base64 encoded dump of a `kubectl` config file with access to your Kubernetes cluster.
+Assumes you have a `GITOPS_REPOSITORY_URL` secret containing your GitOps repo URL (including a personal access token as basic auth) and a `KUBE_CONFIG` secret containing a Base64 encoded dump of a `kubectl` config file with access to your Kubernetes cluster.
 
 ```
 on: push
