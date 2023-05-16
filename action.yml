@@ -1,0 +1,38 @@
+name: k
+description: Installs and configures k.
+inputs:
+  gitops-repository-url:
+    description: URL of the gitops repo to use. Include personal access token in the URL if the repo is private.
+    required: true
+  github-organization:
+    description: GitHub organisation, defaults to the owner of the GitOps repository. Only used for outputting some links.
+    required: false
+  kube-config:
+    description: Base64 encoded kubectl config to use.
+    required: true
+  kube-context:
+    description: Name of the kubectl context to use. Defaults to current context.
+    required: false
+  registry:
+    description: Name of the registry to use. Defaults to first auth available in ~/.docker/config.json or docker.io if no auth is available.
+    required: false
+  registry_namespace:
+    description: Name of the registry namespace to use.
+    required: false
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: reclaim-the-stack/k-action
+        path: k-action
+    - run: ./k-action/action.sh
+      shell: bash
+      env:
+        REGISTRY: ${{inputs.registry}}
+        REGISTRY_NAMESPACE: ${{inputs.registry_namespace}}
+        GITOPS_REPOSITORY_URL: ${{inputs.gitops-repository-url}}
+        GITHUB_ORGANIZATION: ${{inputs.github-organization}}
+        KUBE_CONTEXT: ${{inputs.kube-context}}
+        KUBE_CONFIG: ${{inputs.kube-config}}
+
