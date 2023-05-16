@@ -16,7 +16,7 @@ inputs:
   registry:
     description: Name of the registry to use. Defaults to first auth available in ~/.docker/config.json or docker.io if no auth is available.
     required: false
-  registry_namespace:
+  registry-namespace:
     description: Name of the registry namespace to use.
     required: false
 runs:
