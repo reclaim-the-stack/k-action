@@ -20,7 +20,9 @@ Installs and configures [k](https://github.com/reclaim-the-stack/k) inside GitHu
 
 # Example usage
 
-Example of running `k deploy` to deploy the current git-sha to `<application-name>`. Assumes you have a `GITOPS_REPOSITORY_URL` secret containing your GitOps repo URL including a personal access token and a `KUBE_CONFIG` secret containing a Base64 encoded dump of a `kubectl` config file with access to your Kubernetes cluster.
+Example of running `k deploy` to deploy the current git-sha of the checked out repository to `<application-name>`.
+
+Assumes you have a `GITOPS_REPOSITORY_URL` secret containing your GitOps repo URL (including a personal access token if private) and a `KUBE_CONFIG` secret containing a Base64 encoded dump of a `kubectl` config file with access to your Kubernetes cluster.
 
 ```
 on: push
