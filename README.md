@@ -1,6 +1,6 @@
 # k Github Action
 
-Installs and configures k inside GitHub actions.
+Installs and configures [k](https://github.com/reclaim-the-stack/k) inside GitHub actions.
 
 # Configuration
 
