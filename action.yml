@@ -30,7 +30,7 @@ runs:
       shell: bash
       env:
         REGISTRY: ${{inputs.registry}}
-        REGISTRY_NAMESPACE: ${{inputs.registry_namespace}}
+        REGISTRY_NAMESPACE: ${{inputs.registry-namespace}}
         GITOPS_REPOSITORY_URL: ${{inputs.gitops-repository-url}}
         GITHUB_ORGANIZATION: ${{inputs.github-organization}}
         KUBE_CONTEXT: ${{inputs.kube-context}}
