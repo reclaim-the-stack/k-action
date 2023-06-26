@@ -2,7 +2,12 @@
 
 set -e
 
-mkdir ~/.k
+mkdir -p ~/.k
+
+# Remove default repository if it exists. We might want to optimize this to make use
+# of existing git clones in the future but keeping it simple and immutable for now.
+rm -rf ~/.k/default
+
 git clone $GITOPS_REPOSITORY_URL ~/.k/default
 git -C ~/.k/default config user.name "k-action"
 git -C ~/.k/default config user.email "k-action@reclaim-the-stack.com"
