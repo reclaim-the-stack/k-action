@@ -6,7 +6,7 @@ Installs and configures [k](https://github.com/reclaim-the-stack/k) inside GitHu
 
 ## Required
 
-`gitops-repository-url` - The URL for your GitOps repository. Include a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in the userinfo part of the URL. Eg. `https://<personal-access-token>@github.com/<organization>/<repository>`.
+`gitops-repository-url` - The URL for your GitOps repository. Include a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) as the password in the userinfo part of the URL, with `x-access-token` as the username. Eg. `https://x-access-token:<personal-access-token>@github.com/<organization>/<repository>`.
 
 `kube-config` - A Base64 encoded string containing a full `kubectl` configuration YAML payload with access to the Kubernetes repository you want `k` to interact with. Eg. Linux: `cat ~/.kube/config | base64` (on Linux add the `--wrap 0` argument to avoid newlines).
 
