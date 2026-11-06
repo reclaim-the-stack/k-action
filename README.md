@@ -38,3 +38,12 @@ jobs:
       - uses: actions/checkout@v3
       - run: k deploy <application-name> --disable-image-verification
 ```
+
+# Deploy metadata
+
+The action exports the following environment variables to subsequent steps of the job, which `k deploy` records in its GitOps commit:
+
+- `K_DEPLOYED_BY` - the user who triggered the workflow (`GITHUB_ACTOR`).
+- `K_DEPLOY_BRANCH` - the pull request's source branch (`GITHUB_HEAD_REF`) for pull request events, otherwise the pushed branch (`GITHUB_REF_NAME`). Not set for tag pushes.
+
+Variables already set in the job or workflow `env` are left untouched, so you can override either value there.
