@@ -57,3 +57,14 @@ contexts:
     github_organization: $GITHUB_ORGANIZATION
     kubectl_context: $KUBE_CONTEXT
 EOF
+
+if [ -z "$K_DEPLOYED_BY" ]; then
+  echo "K_DEPLOYED_BY=$GITHUB_ACTOR" >> "$GITHUB_ENV"
+fi
+if [ -z "$K_DEPLOY_BRANCH" ]; then
+  if [ -n "$GITHUB_HEAD_REF" ]; then
+    echo "K_DEPLOY_BRANCH=$GITHUB_HEAD_REF" >> "$GITHUB_ENV"
+  elif [ "$GITHUB_REF_TYPE" = "branch" ]; then
+    echo "K_DEPLOY_BRANCH=$GITHUB_REF_NAME" >> "$GITHUB_ENV"
+  fi
+fi
